@@ -15,9 +15,8 @@ enum NetworkProviderError: Error {
 }
 
 public protocol INetworkProvider {
-    associatedtype T: IRequest
     @discardableResult
-    func send(_ request: T, completion: completionHandler?) -> ICancellable
+    func send(_ request: IRequest, completion: completionHandler?) -> ICancellable
 }
 
 
@@ -30,7 +29,7 @@ struct NetworkTaskRequest {
 public typealias completionHandler = (ALEither<AHNetworkResponse,Error>) -> Void
 
 
-public class AHNetworkProvider<Request: IRequest>: INetworkProvider {
+public class AHNetworkProvider: INetworkProvider {
 
     fileprivate let adapter: IRequestAdapter = AHRequestAdapter()
     fileprivate let sender: INetworkTaskNode
@@ -40,7 +39,7 @@ public class AHNetworkProvider<Request: IRequest>: INetworkProvider {
     }
     
     @discardableResult
-    public func send(_ request: Request, completion: completionHandler?) -> ICancellable {
+    public func send(_ request: IRequest, completion: completionHandler?) -> ICancellable {
         let nRequest = NetworkTaskRequest(urlRequest: adapter.urlRequest(for: request), type: request.taskType)
         return sender.send(request: nRequest, completion: completion)
     }
@@ -48,7 +47,7 @@ public class AHNetworkProvider<Request: IRequest>: INetworkProvider {
 
 public extension AHNetworkProvider {
 
-    public func requestFuture(for request: Request) -> AHFuture<AHNetworkResponse,Error> {
+    public func requestFuture(for request: IRequest) -> AHFuture<AHNetworkResponse,Error> {
         return AHFuture<AHNetworkResponse,Error>() { (scope) in
             self.send(request, completion: scope)
         }

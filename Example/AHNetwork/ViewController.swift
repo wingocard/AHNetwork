@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AHNetworkProvider<MyTestService>().requestFuture(for: .google)
+        AHNetworkProvider().requestFuture(for: MyTestService.google)
                                                  .filter(predicate: {(200..<300).contains($0.statusCode)}, error: TestError.notFound)
                                                  .map(transform: { String.init(data: $0.data, encoding: .ascii)! })
                                                  .onSuccess(callback: {print($0)})

@@ -1,7 +1,7 @@
 PODS:
   - AHFuture (0.1.4):
     - ALEither
-  - AHNetwork (0.1.0):
+  - AHNetwork (0.1.1):
     - AHFuture
   - ALEither (0.1.4)
 
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AHFuture: b6e7239fb2a337329df45a0a7f9b74a21e841d8b
-  AHNetwork: b8c3ecea7ac0a64e6206b20b678016812c1fb9e2
+  AHNetwork: 4a2800299ba5b759ba68734c4f6bb3799fdaba77
   ALEither: 790e8f1dda897bfcb56e547e5db86c4eb25da87b
 
 PODFILE CHECKSUM: c08f27847527bc9ac33eba7c0def330d2751a7b2
