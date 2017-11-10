@@ -11,6 +11,8 @@ import AHNetwork
 
 
 enum MyTestService: IRequest {
+    var port: Int? {return 8000}
+    
     case google
     
     var baseURL: String { return "www.google.com"}
