@@ -25,6 +25,7 @@ struct MockRequest: IRequest {
     var method: AHMethod { return .get }
     var scheme: AHScheme { return .https }
     var taskType: AHTaskType { return .request }
+    var port: Int? {return 980}
 }
 
 class AHRequestAdapterTests: XCTestCase {

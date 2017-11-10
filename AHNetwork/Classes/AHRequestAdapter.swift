@@ -38,7 +38,7 @@ final class AHRequestAdapter: IRequestAdapter {
         components.path = request.path
         components.queryItems = request.parameters.map(URLQueryItem.init)
         components.scheme = request.scheme.string
-        
+        components.port = request.port
         return components
     }
     

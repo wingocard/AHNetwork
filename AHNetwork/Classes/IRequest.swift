@@ -19,6 +19,7 @@ public protocol IRequest {
     var method: AHMethod { get }
     var scheme: AHScheme { get }
     var taskType: AHTaskType { get }
+    var port: Int? { get }
 }
 
 let session = URLSession(configuration: URLSessionConfiguration.background(withIdentifier: "Bacl"))
