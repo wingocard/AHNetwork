@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'AHNetwork_Example' do
-  pod 'AHNetwork', :path => '../'
+  pod 'AHNetwork' , :path => '../'
 
   target 'AHNetwork_Tests' do
     inherit! :search_paths
