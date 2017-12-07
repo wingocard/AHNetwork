@@ -36,7 +36,10 @@ final class AHRequestAdapter: IRequestAdapter {
         var components = URLComponents()
         components.host = request.baseURL
         components.path = request.path
-        components.queryItems = request.parameters.map(URLQueryItem.init)
+        
+        if !request.parameters.isEmpty {
+            components.queryItems = request.parameters.map(URLQueryItem.init)
+        }
         components.scheme = request.scheme.string
         components.port = request.port
         return components

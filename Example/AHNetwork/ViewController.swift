@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         AHNetworkProvider().requestFuture(for: MyTestService.google)
-                                                 .filter(predicate: {(200..<300).contains($0.statusCode)}, error: TestError.notFound)
+                                                 .filter(predicate: { (200..<300).contains($0.statusCode) }, error: TestError.notFound)
                                                  .map(transform: { String.init(data: $0.data, encoding: .ascii)! })
                                                  .onSuccess(callback: {print($0)})
                                                  .onFailure(callback: {print($0)})

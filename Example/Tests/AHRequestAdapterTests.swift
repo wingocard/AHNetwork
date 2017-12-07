@@ -10,29 +10,38 @@ import XCTest
 @testable import AHNetwork
 
 struct MockRequest: IRequest {
-    var baseURL: String { return  "www.myApi.com" }
-    var path: String { return "/console"}
-    var parameters: [String : String] {
-        return ["role": "admin","access" : "full"]
-    }
+    var baseURL: String =   "www.myApi.com"
+    var path: String = "/console"
+    var parameters: [String : String] =
+         ["role": "admin","access" : "full"]
     
-    var headers: [String : String] {
-        return ["username": "admin", "password" : "12345"]
-    }
     
-    var body: Data? { return "Test".data(using: .utf8)! }
+    var headers: [String : String] = ["username": "admin", "password" : "12345"]
     
-    var method: AHMethod { return .get }
-    var scheme: AHScheme { return .https }
-    var taskType: AHTaskType { return .request }
-    var port: Int? {return 980}
+    
+    var body: Data? =  "Test".data(using: .utf8)!
+    
+    var method: AHMethod =  .get
+    var scheme: AHScheme = .https
+    var taskType: AHTaskType = .request
+    var port: Int? = 980
 }
+
+
+
 
 class AHRequestAdapterTests: XCTestCase {
     
     func test_adapter_uses_base_url() {
        let urlRequest =  AHRequestAdapter().urlRequest(for: MockRequest())
        XCTAssertEqual(urlRequest.url?.host, MockRequest().baseURL)
+    }
+    
+    func test_adapter_missing_params() {
+        var mockR = MockRequest()
+        mockR.parameters = [:]
+        let urlRequest = AHRequestAdapter().urlRequest(for: mockR)
+        XCTAssertEqual(urlRequest.url?.absoluteURL.absoluteString, "https://www.myApi.com:980/console")
     }
     
     func test_adapter_uses_path() {
@@ -59,4 +68,7 @@ class AHRequestAdapterTests: XCTestCase {
         let urlRequest =  AHRequestAdapter().urlRequest(for: MockRequest())
         XCTAssertEqual(urlRequest.httpBody, MockRequest().body)
     }
+    
+    
+    
 }
