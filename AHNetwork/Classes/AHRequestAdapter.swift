@@ -33,16 +33,23 @@ final class AHRequestAdapter: IRequestAdapter {
     }
     
     private func createComponents(from request: IRequest) -> URLComponents {
-        var components = URLComponents()
-        components.host = request.baseURL
-        components.path = request.path
+        var components = tryFrom(url: request.baseURL) ?? URLComponents()
+   
+        components.host = components.host ?? request.baseURL
+        components.path = components.path.isEmpty ? request.path : components.path
         
         if !request.parameters.isEmpty {
-            components.queryItems = request.parameters.map(URLQueryItem.init)
+            components.queryItems = components.queryItems ?? request.parameters.map(URLQueryItem.init)
         }
-        components.scheme = request.scheme.string
-        components.port = request.port
+        components.scheme = components.scheme ?? request.scheme.string
+        components.port = components.port ?? request.port
+        
         return components
+    }
+    
+    private func tryFrom(url: String) -> URLComponents? {
+        let components = URLComponents(string: url)
+        return components?.host == nil ? nil : components
     }
     
     private func appendMethod(to urlRequest: URLRequest, from request: IRequest) -> URLRequest {

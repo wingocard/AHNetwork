@@ -70,5 +70,12 @@ class AHRequestAdapterTests: XCTestCase {
     }
     
     
+    func test_url_already_contains_scheme() {
+        var mockR = MockRequest()
+        mockR.parameters = [:]
+        mockR.baseURL = "https://www.myApi.com:980/console"
+        let urlRequest = AHRequestAdapter().urlRequest(for: mockR)
+        XCTAssertEqual(urlRequest.url?.absoluteURL.absoluteString, "https://www.myApi.com:980/console")
+    }
     
 }
