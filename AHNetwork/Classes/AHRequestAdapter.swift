@@ -13,9 +13,11 @@ protocol IRequestAdapter {
     func urlRequest(for request: IRequest) -> URLRequest
 }
 
-final class AHRequestAdapter: IRequestAdapter {
+public final class AHRequestAdapter: IRequestAdapter {
     
-    func urlRequest(for request: IRequest) -> URLRequest {
+    public init() {}
+    
+    public func urlRequest(for request: IRequest) -> URLRequest {
         
         return  request » createURLRequest
                         » { appendMethod(to: $0,from: request) }
@@ -23,6 +25,7 @@ final class AHRequestAdapter: IRequestAdapter {
                         » { setHeaders(in: $0,from: request) }
         
     }
+    
     
     private func createURLRequest(from request: IRequest) -> URLRequest {
         
