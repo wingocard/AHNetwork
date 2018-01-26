@@ -15,9 +15,9 @@ public struct AHNetworkResponse {
     
     init?(data: Data?, response: URLResponse?) {
         guard let d = data,
-            let r = response as? HTTPURLResponse else { return nil }
+            let r = response else { return nil }
         self.data = d
         self.response = r
-        statusCode = r.statusCode
+        statusCode = (r as? HTTPURLResponse)?.statusCode ?? 200
     }
 }
