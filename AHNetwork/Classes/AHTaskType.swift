@@ -10,4 +10,5 @@ import Foundation
 
 public enum AHTaskType {
     case request
+    case download
 }

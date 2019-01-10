@@ -12,6 +12,7 @@
 		324939994059A47292F3745B5E6305F5 /* AHFuture-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E983107EE2401400DF01BDEC000576 /* AHFuture-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		33D9C0742A68B694A9DC58D583D3111D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F3B7D35627CCEBF6A5424823ECE9CA /* Foundation.framework */; };
 		40AC1FE77FF5064809D64B86B62DA811 /* IRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA0A2C2D470F518FE777171B20AD93 /* IRequest.swift */; };
+		41B8EA8921E7F642000C458B /* DownloadTaskNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B8EA8721E7F5EA000C458B /* DownloadTaskNode.swift */; };
 		44DEC13568CA9EBFE5E1B68DFA1C6A09 /* AHNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0770E505A67556BB3BB7F1CE10CD9 /* AHNetworkResponse.swift */; };
 		5397DE4600AC6BD4093A59C8323370F2 /* AHNetworkResponseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B09E9D82F8F2D1A474AE3E59F86608 /* AHNetworkResponseAdapter.swift */; };
 		588EBEF9AA97FE6521E25B4DB6F8E9B7 /* ALEither.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49C1482D21F09BF87056401E0BDE844 /* ALEither.framework */; };
@@ -91,7 +92,7 @@
 
 /* Begin PBXFileReference section */
 		01CAFCF564ACC355793E77962F063920 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		031F3C1D70B3F368C64616CB960A2338 /* AHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AHNetwork.framework; path = AHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		031F3C1D70B3F368C64616CB960A2338 /* AHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06A86C3DEE55731AA4ADA75D39563FC8 /* AHFuture.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AHFuture.modulemap; sourceTree = "<group>"; };
 		0996427C9832E752A64BE875507722E5 /* AHStoppableFuture.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHStoppableFuture.swift; path = AHFuture/Classes/AHStoppableFuture.swift; sourceTree = "<group>"; };
 		1377D40542738AC0616B4CF9D56C5849 /* AHNetwork.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AHNetwork.xcconfig; sourceTree = "<group>"; };
@@ -103,7 +104,7 @@
 		23B09E9D82F8F2D1A474AE3E59F86608 /* AHNetworkResponseAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHNetworkResponseAdapter.swift; path = AHNetwork/Classes/AHNetworkResponseAdapter.swift; sourceTree = "<group>"; };
 		28E983107EE2401400DF01BDEC000576 /* AHFuture-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AHFuture-umbrella.h"; sourceTree = "<group>"; };
 		2BBB82D948486A5009C04347664038B2 /* Pods-AHNetwork_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AHNetwork_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2F1725A63E882A121B996B2577905B8D /* AHFuture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AHFuture.framework; path = AHFuture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F1725A63E882A121B996B2577905B8D /* AHFuture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AHFuture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		335952574154D9D07A7D9C664B8AE5EE /* Pods-AHNetwork_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AHNetwork_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		350371ACD1C9BAE2612E1021EE66CC39 /* Pods-AHNetwork_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AHNetwork_Tests-dummy.m"; sourceTree = "<group>"; };
 		3645CF905D66CAF78C90D5C0D29794E8 /* AHNetwork-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AHNetwork-umbrella.h"; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		3AD028719A799D994088C02FD9519EDE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		406ADE19F02FF5C3D0449B299D9C2579 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40B85CF7F0AC425E359B7469AC27BC68 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41B8EA8721E7F5EA000C458B /* DownloadTaskNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DownloadTaskNode.swift; path = AHNetwork/Classes/DownloadTaskNode.swift; sourceTree = "<group>"; };
 		451DDC45A2A71C337388BB6BC3366D27 /* Pods-AHNetwork_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AHNetwork_Example-umbrella.h"; sourceTree = "<group>"; };
 		4A5E39C4203091A3B2F5DEEED7521080 /* AHAsyncType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHAsyncType.swift; path = AHFuture/Classes/AHAsyncType.swift; sourceTree = "<group>"; };
 		4A9E33DAB8B081A4CBEFC6CF396494BF /* AHFuture-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AHFuture-dummy.m"; sourceTree = "<group>"; };
@@ -121,7 +123,7 @@
 		5D291C746DEE2CF37C021679012390AE /* AHRequestAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHRequestAdapter.swift; path = AHNetwork/Classes/AHRequestAdapter.swift; sourceTree = "<group>"; };
 		5FA8CB105D5DE63D205209B1A09B7533 /* AHFuture.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHFuture.swift; path = AHFuture/Classes/AHFuture.swift; sourceTree = "<group>"; };
 		6309322F6EC24DA6E45EFEB1A9009338 /* AHTaskType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHTaskType.swift; path = AHNetwork/Classes/AHTaskType.swift; sourceTree = "<group>"; };
-		66EBE05527555252C7F97DAECD70AB42 /* Pods_AHNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AHNetwork_Tests.framework; path = "Pods-AHNetwork_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66EBE05527555252C7F97DAECD70AB42 /* Pods_AHNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHNetwork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F3B7D35627CCEBF6A5424823ECE9CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		77AA33BA5B034BC7671F5B1B985D3BA6 /* AHNetwork.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AHNetwork.modulemap; sourceTree = "<group>"; };
 		7D59D301BBCFDD5E8C81EBED34158FE3 /* AHNetwork-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AHNetwork-prefix.pch"; sourceTree = "<group>"; };
@@ -132,7 +134,7 @@
 		842EE3F6DDE207B870B3217628B40EC9 /* Pods-AHNetwork_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AHNetwork_Tests-resources.sh"; sourceTree = "<group>"; };
 		890DD9B03570E3B47487B183264A1F00 /* ALEither-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ALEither-dummy.m"; sourceTree = "<group>"; };
 		8A7B1A59F99DFE3E0B79A58B8823C851 /* ALEither-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALEither-umbrella.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95E0770E505A67556BB3BB7F1CE10CD9 /* AHNetworkResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHNetworkResponse.swift; path = AHNetwork/Classes/AHNetworkResponse.swift; sourceTree = "<group>"; };
 		96503D1340BF6701893E82A2FA4C3FB1 /* Pods-AHNetwork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AHNetwork_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9CD58B606F468B31B3043F72319D2A65 /* AHNetworkProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHNetworkProvider.swift; path = AHNetwork/Classes/AHNetworkProvider.swift; sourceTree = "<group>"; };
@@ -144,8 +146,8 @@
 		B403B08911AA4B9B53617F7FCD749C8D /* ALEither.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ALEither.xcconfig; sourceTree = "<group>"; };
 		B8A575B9D62AB1F7128AC8CB866CE21E /* AHAsync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHAsync.swift; path = AHFuture/Classes/AHAsync.swift; sourceTree = "<group>"; };
 		BE23CF2C340FF804821A5AE668FA1A63 /* RequestTaskNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestTaskNode.swift; path = AHNetwork/Classes/RequestTaskNode.swift; sourceTree = "<group>"; };
-		BFD2FF55DD2F2918C36397B31334C15D /* Pods_AHNetwork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AHNetwork_Example.framework; path = "Pods-AHNetwork_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBE55E5241D10AD98FA0B08E89638009 /* ALEither.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ALEither.framework; path = ALEither.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD2FF55DD2F2918C36397B31334C15D /* Pods_AHNetwork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHNetwork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE55E5241D10AD98FA0B08E89638009 /* ALEither.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALEither.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC03F6354EA73506D9A485BA070DF570 /* Pods-AHNetwork_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AHNetwork_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		D840B507372C38DC1B5AADA4AFD1744C /* ALEither.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ALEither.swift; path = ALEither/Classes/ALEither.swift; sourceTree = "<group>"; };
 		E49C1482D21F09BF87056401E0BDE844 /* ALEither.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALEither.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +236,7 @@
 				E916C96F776036EDB0F0DB9132315BE5 /* BasicTaskNode.swift */,
 				EDCA0A2C2D470F518FE777171B20AD93 /* IRequest.swift */,
 				BE23CF2C340FF804821A5AE668FA1A63 /* RequestTaskNode.swift */,
+				41B8EA8721E7F5EA000C458B /* DownloadTaskNode.swift */,
 				8F1A3104BF6BCD158D478FF5E7B3C479 /* Support Files */,
 			);
 			name = AHNetwork;
@@ -258,7 +261,6 @@
 				0996427C9832E752A64BE875507722E5 /* AHStoppableFuture.swift */,
 				847901DF26FEEF17B218DC6C3A67E7C3 /* Support Files */,
 			);
-			name = AHFuture;
 			path = AHFuture;
 			sourceTree = "<group>";
 		};
@@ -367,7 +369,6 @@
 				197280B3E76F189AF0ECD912B6B73CC5 /* OptionalExt.swift */,
 				9445E313B4535BB7CA9393C330AA1A33 /* Support Files */,
 			);
-			name = ALEither;
 			path = ALEither;
 			sourceTree = "<group>";
 		};
@@ -602,6 +603,7 @@
 				44DEC13568CA9EBFE5E1B68DFA1C6A09 /* AHNetworkResponse.swift in Sources */,
 				5397DE4600AC6BD4093A59C8323370F2 /* AHNetworkResponseAdapter.swift in Sources */,
 				8ECD13B4AB808A3FB0C02A52C5CECDD7 /* AHRequestAdapter.swift in Sources */,
+				41B8EA8921E7F642000C458B /* DownloadTaskNode.swift in Sources */,
 				AC9AA17FBE9B2172160085CC328AA2EE /* AHScheme.swift in Sources */,
 				59F7AC03B56C2DEC78D8D6CE3BAF7615 /* AHTaskType.swift in Sources */,
 				D4EE573809C47FEF429857FA1AF1A1A3 /* BasicTaskNode.swift in Sources */,

@@ -35,7 +35,7 @@ public class AHNetworkProvider: INetworkProvider {
     fileprivate let sender: INetworkTaskNode
     
     public init(session: URLSession = URLSession(configuration: URLSessionConfiguration.default)) {
-        sender = BasicTaskNode.createChain(from: [RequestTaskNode.self], using: session)
+        sender = BasicTaskNode.createChain(from: [RequestTaskNode.self,DownloadTaskNode.self], using: session)
     }
     
     @discardableResult

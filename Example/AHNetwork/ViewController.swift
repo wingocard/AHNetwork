@@ -11,12 +11,40 @@ import AHNetwork
 
 
 enum MyTestService: IRequest {
-    var port: Int? {return 8000}
-    
     case google
-    
-    var baseURL: String { return "www.google.com"}
-    var path: String { return "" }
+    case s3
+    var port: Int? {
+        switch self {
+        case .google:
+            return 443
+        case .s3:
+            return nil
+        }
+    }
+    var baseURL: String {
+        switch self {
+        case .google:
+            return "www.google.com"
+        case .s3:
+            return "s3.amazonaws.com"
+        }
+    }
+    var path: String {
+        switch self {
+        case .google:
+            return ""
+        case .s3:
+            return "/esteban-test-public-bucket/package.zip"
+        }
+    }
+    var taskType: AHTaskType {
+        switch self {
+        case .google:
+            return .request
+        case .s3:
+            return .download
+        }
+    }
     var parameters: [String : String] {
         return [:]
     }
@@ -27,7 +55,6 @@ enum MyTestService: IRequest {
     
     var method: AHMethod { return .get }
     var scheme: AHScheme { return .https }
-    var taskType: AHTaskType {return .request }
 }
 
 enum TestError: Error {
@@ -46,7 +73,12 @@ class ViewController: UIViewController {
                                                  .onFailure(callback: {print($0)})
                                                  .execute()
 
-
+        AHNetworkProvider().requestFuture(for: MyTestService.s3)
+            .filter(predicate: { (200..<300).contains($0.statusCode) }, error: TestError.notFound)
+            .map(transform: { String.init(data: $0.data, encoding: .ascii)! })
+            .onSuccess(callback: {print($0)})
+            .onFailure(callback: {print($0)})
+            .execute()
     }
 
     override func didReceiveMemoryWarning() {

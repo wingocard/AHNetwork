@@ -34,7 +34,6 @@ class BasicTaskNode: INetworkTaskNode {
         return cancellable
     }
     
-    
     static func createChain(from types: [BasicTaskNode.Type], using session: URLSession) -> INetworkTaskNode {
         let result = types.reversed().reduce(nil) { (result, type) -> BasicTaskNode? in
             var link = result
