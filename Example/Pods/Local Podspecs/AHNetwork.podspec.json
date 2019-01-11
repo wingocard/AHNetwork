@@ -16,8 +16,8 @@
   },
   "module_name": "AHNetwork",
   "platforms": {
-    "ios": "9.0",
-    "tvos": "9.0"
+    "ios": "11.0",
+    "tvos": "11.0"
   },
   "source_files": "AHNetwork/Classes/**/*",
   "dependencies": {

@@ -11,12 +11,41 @@ import AHNetwork
 
 
 enum MyTestService: IRequest {
-    var port: Int? {return 8000}
-    
     case google
+    case s3
     
-    var baseURL: String { return "www.google.com"}
-    var path: String { return "" }
+    var port: Int? {
+        switch self {
+        case .google:
+            return 443
+        case .s3:
+            return nil
+        }
+    }
+    var baseURL: String {
+        switch self {
+        case .google:
+            return "www.google.com"
+        case .s3:
+            return "s3.amazonaws.com"
+        }
+    }
+    var path: String {
+        switch self {
+        case .google:
+            return ""
+        case .s3:
+            return "/esteban-test-public-bucket/package.zip"
+        }
+    }
+    var taskType: AHTaskType {
+        switch self {
+        case .google:
+            return .request
+        case .s3:
+            return .download
+        }
+    }
     var parameters: [String : String] {
         return [:]
     }
@@ -27,7 +56,6 @@ enum MyTestService: IRequest {
     
     var method: AHMethod { return .get }
     var scheme: AHScheme { return .https }
-    var taskType: AHTaskType {return .request }
 }
 
 enum TestError: Error {
@@ -35,9 +63,12 @@ enum TestError: Error {
 }
 
 class ViewController: UIViewController {
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet var statusLabel: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
         
         AHNetworkProvider().requestFuture(for: MyTestService.google)
                                                  .filter(predicate: { (200..<300).contains($0.statusCode) }, error: TestError.notFound)
@@ -45,14 +76,22 @@ class ViewController: UIViewController {
                                                  .onSuccess(callback: {print($0)})
                                                  .onFailure(callback: {print($0)})
                                                  .execute()
-
-
+        
+        AHNetworkProvider().send(MyTestService.s3, completion: { _ in
+            DispatchQueue.main.async {
+                self.statusLabel.text = "Done! 😊"
+            }
+        }) { (progress) in
+            DispatchQueue.main.async {
+                self.statusLabel.text = "\(progress)"
+                self.progressView.progress = Float(progress)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
 

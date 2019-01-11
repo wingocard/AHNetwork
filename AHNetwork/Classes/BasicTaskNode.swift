@@ -10,7 +10,7 @@ import Foundation
 
 protocol INetworkTaskNode {
     init(session: URLSession)
-    func send(request: NetworkTaskRequest, completion: completionHandler?) -> ICancellable
+    func send(request: NetworkTaskRequest, completion: completionHandler?, progress: progressTracker?) -> ICancellable
 }
 
 extension URLSessionTask: ICancellable {}
@@ -27,13 +27,12 @@ class BasicTaskNode: INetworkTaskNode {
         self.session = session
     }
     
-    func send(request: NetworkTaskRequest, completion:  completionHandler?) -> ICancellable {
-        guard let cancellable = nextLink?.send(request: request, completion: completion) else {
+    func send(request: NetworkTaskRequest, completion: completionHandler?, progress: progressTracker?) -> ICancellable {
+        guard let cancellable = nextLink?.send(request: request, completion: completion, progress: progress) else {
             fatalError("Cancellable hasn't been returned")
         }
         return cancellable
     }
-    
     
     static func createChain(from types: [BasicTaskNode.Type], using session: URLSession) -> INetworkTaskNode {
         let result = types.reversed().reduce(nil) { (result, type) -> BasicTaskNode? in
