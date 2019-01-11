@@ -17,8 +17,8 @@ s.summary          = 'Easy framework for Network'
 s.source           = { :git => 'https://github.com/AlexHmelevski/AHNetwork.git', :tag => s.version.to_s }
 s.module_name  = 'AHNetwork'
 
-s.ios.deployment_target = '9.0'
-s.tvos.deployment_target = '9.0'
+s.ios.deployment_target = '11.0'
+s.tvos.deployment_target = '11.0'
 
 s.source_files = 'AHNetwork/Classes/**/*'
 

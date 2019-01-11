@@ -8,15 +8,20 @@ PODS:
 DEPENDENCIES:
   - AHNetwork (from `../`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AHFuture
+    - ALEither
+
 EXTERNAL SOURCES:
   AHNetwork:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   AHFuture: 1a40f591f91403240a25e9d798dbc693c2d679e0
-  AHNetwork: 426e89335e94daeb4c3a4577ade4421eced640c4
+  AHNetwork: f0ef7b73a66f7d822455e15925418219f6171954
   ALEither: f9a44e33ec55df529b8202ae7683df126c6d3329
 
 PODFILE CHECKSUM: b2eee8774fc110ddaf0253d924e91082c209fe78
 
-COCOAPODS: 1.4.0.beta.2
+COCOAPODS: 1.5.3

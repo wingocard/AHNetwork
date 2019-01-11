@@ -13,6 +13,7 @@ import AHNetwork
 enum MyTestService: IRequest {
     case google
     case s3
+    
     var port: Int? {
         switch self {
         case .google:
@@ -62,9 +63,12 @@ enum TestError: Error {
 }
 
 class ViewController: UIViewController {
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet var statusLabel: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
         
         AHNetworkProvider().requestFuture(for: MyTestService.google)
                                                  .filter(predicate: { (200..<300).contains($0.statusCode) }, error: TestError.notFound)
@@ -72,19 +76,22 @@ class ViewController: UIViewController {
                                                  .onSuccess(callback: {print($0)})
                                                  .onFailure(callback: {print($0)})
                                                  .execute()
-
-        AHNetworkProvider().requestFuture(for: MyTestService.s3)
-            .filter(predicate: { (200..<300).contains($0.statusCode) }, error: TestError.notFound)
-            .map(transform: { String.init(data: $0.data, encoding: .ascii)! })
-            .onSuccess(callback: {print($0)})
-            .onFailure(callback: {print($0)})
-            .execute()
+        
+        AHNetworkProvider().send(MyTestService.s3, completion: { _ in
+            DispatchQueue.main.async {
+                self.statusLabel.text = "Done! 😊"
+            }
+        }) { (progress) in
+            DispatchQueue.main.async {
+                self.statusLabel.text = "\(progress)"
+                self.progressView.progress = Float(progress)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
 

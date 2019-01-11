@@ -7,20 +7,23 @@
 
 import Foundation
 
-final class DownloadTaskNode: BasicTaskNode {
+class DownloadTaskNode: BasicTaskNode {
     var downloadAdapter: INetworkDownloadAdapter = AHNetworkResponseAdapter()
+    var observation: NSKeyValueObservation?
     
-    override func send(request: NetworkTaskRequest, completion: completionHandler?) -> ICancellable {
+    override func send(request: NetworkTaskRequest, completion: completionHandler?, progress: progressTracker?) -> ICancellable {
         guard case .download = request.type else {
-            return super.send(request: request, completion: completion)
+            return super.send(request: request, completion: completion, progress: progress)
         }
-        
+
         let task = session.downloadTask(with: request.urlRequest, completionHandler:{ (localURL, response, error) in
             completion?(self.downloadAdapter.response(from: localURL, with: response, and: error))
         })
         
         task.resume()
-        
+        observation = task.observe(\.progress.fractionCompleted, options: .new) { (downloadTask, _) in
+            progress?(downloadTask.progress.fractionCompleted)
+        }
         return task
     }
 }
