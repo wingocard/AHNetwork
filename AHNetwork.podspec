@@ -18,7 +18,6 @@ s.source           = { :git => 'https://github.com/AlexHmelevski/AHNetwork.git',
 s.module_name  = 'AHNetwork'
 
 s.ios.deployment_target = '11.0'
-s.tvos.deployment_target = '11.0'
 
 s.source_files = 'AHNetwork/Classes/**/*'
 
