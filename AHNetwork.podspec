@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'AHNetwork'
-s.version          = '0.2.0'
+s.version          = '0.2.1'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.homepage         = 'https://github.com/AlexHmelevski/AHNetwork.git'
 s.author           = { 'AlexHmelevskiAG' => 'alex.hmelevski@gmail.com' }
@@ -23,6 +23,7 @@ s.tvos.deployment_target = '11.0'
 s.source_files = 'AHNetwork/Classes/**/*'
 
 s.dependency 'AHFuture'
+s.dependency 'EitherResult'
 end
 
 

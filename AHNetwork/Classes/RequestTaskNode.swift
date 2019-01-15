@@ -17,7 +17,9 @@ final class RequestTaskNode: BasicTaskNode {
         }
         
         let task = session.dataTask(with: request.urlRequest, completionHandler: { (data, response, error) in
-            completion?(self.responseAdapter.response(from: data, with: response, and: error))
+            self.responseAdapter.response(from: data, with: response, and: error)
+                                .do(work: { completion?(.right($0)) })
+                                .doIfWrong(work: { completion?(.wrong($0))})
         })
         
         task.resume()

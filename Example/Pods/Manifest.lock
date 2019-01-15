@@ -1,17 +1,20 @@
 PODS:
   - AHFuture (0.1.7):
     - ALEither
-  - AHNetwork (0.1.9):
+  - AHNetwork (0.2.0):
     - AHFuture
+    - EitherResult
   - ALEither (0.1.6)
+  - EitherResult (0.1.1)
 
 DEPENDENCIES:
   - AHNetwork (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AHFuture
     - ALEither
+    - EitherResult
 
 EXTERNAL SOURCES:
   AHNetwork:
@@ -19,9 +22,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AHFuture: 1a40f591f91403240a25e9d798dbc693c2d679e0
-  AHNetwork: f0ef7b73a66f7d822455e15925418219f6171954
+  AHNetwork: fb26d42a822aaae69b9694acef3f72211551d463
   ALEither: f9a44e33ec55df529b8202ae7683df126c6d3329
+  EitherResult: 0bf571519cb31eaf8de1c4c5c5a4869516df10b0
 
 PODFILE CHECKSUM: b2eee8774fc110ddaf0253d924e91082c209fe78
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.0

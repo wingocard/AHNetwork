@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		0AB8E8F6B1C5254F565DB613 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1476036058013F21A60F4C10 /* Pods-AHNetwork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHNetwork_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AHNetwork_Tests/Pods-AHNetwork_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		2D9A987EB63FB681656E7912 /* AHNetwork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AHNetwork.podspec; path = ../AHNetwork.podspec; sourceTree = "<group>"; };
+		2D9A987EB63FB681656E7912 /* AHNetwork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AHNetwork.podspec; path = ../AHNetwork.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5C1B54B1E8467427080DBC2A /* Pods_AHNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHNetwork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* AHNetwork_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHNetwork_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -290,12 +290,14 @@
 				"${BUILT_PRODUCTS_DIR}/AHFuture/AHFuture.framework",
 				"${BUILT_PRODUCTS_DIR}/AHNetwork/AHNetwork.framework",
 				"${BUILT_PRODUCTS_DIR}/ALEither/ALEither.framework",
+				"${BUILT_PRODUCTS_DIR}/EitherResult/EitherResult.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AHFuture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AHNetwork.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALEither.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EitherResult.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

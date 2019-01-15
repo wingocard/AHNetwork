@@ -17,7 +17,9 @@ class DownloadTaskNode: BasicTaskNode {
         }
 
         let task = session.downloadTask(with: request.urlRequest, completionHandler:{ (localURL, response, error) in
-            completion?(self.downloadAdapter.response(from: localURL, with: response, and: error))
+            self.downloadAdapter.response(from: localURL, with: response, and: error)
+                                .do(work: { completion?(.right($0)) })
+                                .doIfWrong(work: { completion?(.wrong($0))})
         })
         
         task.resume()

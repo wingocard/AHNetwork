@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import ALEither
+import EitherResult
 import AHFuture
 
 enum NetworkProviderError: Error {
@@ -15,7 +15,7 @@ enum NetworkProviderError: Error {
 }
 
 public typealias progressTracker = (Double) -> Void
-public typealias completionHandler = (ALEither<AHNetworkResponse,Error>) -> Void
+public typealias completionHandler = (ALResult<AHNetworkResponse>) -> Void
 
 public protocol INetworkProvider {
     @discardableResult
@@ -38,16 +38,23 @@ public class AHNetworkProvider: INetworkProvider {
     }
     
     @discardableResult
-    public func send(_ request: IRequest, completion: completionHandler?, progress: progressTracker? = nil) -> ICancellable {
+    public func send(_ request: IRequest,
+                     completion: completionHandler?,
+                     progress: progressTracker? = nil) -> ICancellable {
         let nRequest = NetworkTaskRequest(urlRequest: adapter.urlRequest(for: request), type: request.taskType)
-        return sender.send(request: nRequest, completion: completion, progress:progress)
+        return sender.send(request: nRequest,
+                           completion: completion,
+                           progress:progress)
     }
 }
 
 public extension AHNetworkProvider {
     public func requestFuture(for request: IRequest) -> AHFuture<AHNetworkResponse,Error> {
-        return AHFuture<AHNetworkResponse,Error>() { (scope) in
-            self.send(request, completion: scope)
+            return AHFuture<AHNetworkResponse,Error>() { (scope) in
+                self.send(request, completion: { result in
+                    result.do(work: { scope(.right(value: $0)) })
+                          .onError( { scope(.wrong(value: $0)) })
+            })
         }
     }
 }
