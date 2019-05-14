@@ -1,6 +1,6 @@
 {
   "name": "AHNetwork",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,13 +12,13 @@
   "summary": "Easy framework for Network",
   "source": {
     "git": "https://github.com/AlexHmelevski/AHNetwork.git",
-    "tag": "0.2.0"
+    "tag": "0.2.2"
   },
   "module_name": "AHNetwork",
   "platforms": {
-    "ios": "11.0",
-    "tvos": "11.0"
+    "ios": "11.0"
   },
+  "swift_version": "5.0",
   "source_files": "AHNetwork/Classes/**/*",
   "dependencies": {
     "AHFuture": [
