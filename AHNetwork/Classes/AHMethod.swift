@@ -8,16 +8,14 @@
 
 import Foundation
 
-public enum AHMethod {
+public enum AHMethod: String {
     case post
     case get
+    case put
+    case patch
+    case delete
     
     var string: String {
-        let str: String
-        switch  self {
-            case .post: str = "POST"
-            case .get: str = "GET"
-        }
-        return str
+       return self.rawValue.uppercased()
     }
 }
