@@ -20,4 +20,10 @@ public struct AHNetworkResponse {
         self.response = r
         statusCode = (r as? HTTPURLResponse)?.statusCode ?? 200
     }
+    
+    init(data: Data, response: URLResponse) {
+        self.data = data
+        self.response = response
+        statusCode = (response as? HTTPURLResponse)?.statusCode ?? 200
+    }
 }

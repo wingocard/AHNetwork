@@ -7,10 +7,15 @@
 //
 
 import Foundation
-
+import Combine
 protocol INetworkTaskNode {
     init(session: URLSession)
     func send(request: NetworkTaskRequest, completion: completionHandler?, progress: progressTracker?) -> ICancellable
+}
+
+@available(iOS 13.0, *)
+protocol INetworkTaskNodePublisher {
+    func send(request: NetworkTaskRequest) -> AnyPublisher<AHNetworkResponse,URLError> 
 }
 
 extension URLSessionTask: ICancellable {}
@@ -19,7 +24,7 @@ public protocol ICancellable {
     func cancel()
 }
 
-class BasicTaskNode: INetworkTaskNode {
+class BasicTaskNode: INetworkTaskNode, INetworkTaskNodePublisher {
     let session: URLSession
     private var nextLink: BasicTaskNode?
     
@@ -34,7 +39,15 @@ class BasicTaskNode: INetworkTaskNode {
         return cancellable
     }
     
-    static func createChain(from types: [BasicTaskNode.Type], using session: URLSession) -> INetworkTaskNode {
+    @available(iOS 13.0, *)
+    func send(request: NetworkTaskRequest) -> AnyPublisher<AHNetworkResponse,URLError>  {
+        guard let future = nextLink?.send(request: request) else {
+          fatalError("Cancellable hasn't been returned")
+        }
+        return future
+    }
+    
+    static func createChain(from types: [BasicTaskNode.Type], using session: URLSession) -> BasicTaskNode {
         let result = types.reversed().reduce(nil) { (result, type) -> BasicTaskNode? in
             var link = result
             let existingLink = link
@@ -49,3 +62,4 @@ class BasicTaskNode: INetworkTaskNode {
     }
     
 }
+

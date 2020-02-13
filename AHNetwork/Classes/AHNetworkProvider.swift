@@ -9,6 +9,7 @@
 import Foundation
 import EitherResult
 import AHFuture
+import Combine
 
 enum NetworkProviderError: Error {
     case imposibleToSendTask
@@ -20,6 +21,8 @@ public typealias completionHandler = (ALResult<AHNetworkResponse>) -> Void
 public protocol INetworkProvider {
     @discardableResult
     func send(_ request: IRequest, completion: completionHandler?, progress: progressTracker?) -> ICancellable
+    @available(iOS 13.0, *)
+    func send(_ request: IRequest) -> AnyPublisher<AHNetworkResponse, URLError>
 }
 
 
@@ -31,11 +34,18 @@ struct NetworkTaskRequest {
 public class AHNetworkProvider: INetworkProvider {
 
     fileprivate let adapter: IRequestAdapter = AHRequestAdapter()
-    fileprivate let sender: INetworkTaskNode
+    fileprivate let sender: BasicTaskNode
     
     public init(session: URLSession = URLSession(configuration: URLSessionConfiguration.default)) {
         sender = BasicTaskNode.createChain(from: [RequestTaskNode.self, DownloadTaskNode.self], using: session)
     }
+    
+    @available(iOS 13.0, *)
+    public func send(_ request: IRequest) -> AnyPublisher<AHNetworkResponse, URLError> {
+        let nRequest = NetworkTaskRequest(urlRequest: adapter.urlRequest(for: request), type: request.taskType)
+        return sender.send(request: nRequest)
+    }
+
     
     @discardableResult
     public func send(_ request: IRequest,
@@ -45,17 +55,6 @@ public class AHNetworkProvider: INetworkProvider {
         return sender.send(request: nRequest,
                            completion: completion,
                            progress:progress)
-    }
-}
-
-public extension AHNetworkProvider {
-    public func requestFuture(for request: IRequest) -> AHFuture<AHNetworkResponse,Error> {
-            return AHFuture<AHNetworkResponse,Error>() { (scope) in
-                self.send(request, completion: { result in
-                    result.do(work: { scope(.right(value: $0)) })
-                          .onError( { scope(.wrong(value: $0)) })
-            })
-        }
     }
 }
 

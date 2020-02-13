@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 final class RequestTaskNode: BasicTaskNode {
     var responseAdapter: INetworkResponseAdapter = AHNetworkResponseAdapter()
@@ -23,7 +24,17 @@ final class RequestTaskNode: BasicTaskNode {
         })
         
         task.resume()
-        
         return task
+    }
+    
+    @available(iOS 13.0, *)
+    override func send(request: NetworkTaskRequest) -> AnyPublisher<AHNetworkResponse,URLError> {
+        guard case .request = request.type else {
+            return super.send(request: request)
+        }
+        
+        return session.dataTaskPublisher(for: request.urlRequest)
+                      .map(AHNetworkResponse.init)
+                    .eraseToAnyPublisher()
     }
 }

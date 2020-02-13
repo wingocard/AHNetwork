@@ -8,7 +8,7 @@
 
 import UIKit
 import AHNetwork
-
+import Combine
 
 enum MyTestService: IRequest {
     case google
@@ -25,7 +25,7 @@ enum MyTestService: IRequest {
     var baseURL: String {
         switch self {
         case .google:
-            return "www.google.com"
+            return "www.amazon.com"
         case .s3:
             return "s3.amazonaws.com"
         }
@@ -69,24 +69,33 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
+       let _ = AHNetworkProvider().send(MyTestService.google)
+                                     .map({ String.init(data: $0.data, encoding: .ascii) ?? "NOPE"})
+                                     .receive(on: RunLoop.main)
+                                     .sink(receiveCompletion: { (completion) in
+                        
+                                            debugPrint(completion)
+                                        },
+                                          receiveValue: { [weak self] in self?.statusLabel.text = "Done! 😊 \($0)" })
         
-        AHNetworkProvider().requestFuture(for: MyTestService.google)
-                                                 .filter(predicate: { (200..<300).contains($0.statusCode) }, error: TestError.notFound)
-                                                 .map(transform: { String.init(data: $0.data, encoding: .ascii)! })
-                                                 .onSuccess(callback: {print($0)})
-                                                 .onFailure(callback: {print($0)})
-                                                 .execute()
+//
+//        AHNetworkProvider().requestFuture(for: MyTestService.google)
+//                                                 .filter(predicate: { (200..<300).contains($0.statusCode) }, error: TestError.notFound)
+//                                                 .map(transform: { String.init(data: $0.data, encoding: .ascii)! })
+//                                                 .onSuccess(callback: {print($0)})
+//                                                 .onFailure(callback: {print($0)})
+//                                                 .execute()
         
-        AHNetworkProvider().send(MyTestService.s3, completion: { _ in
-            DispatchQueue.main.async {
-                self.statusLabel.text = "Done! 😊"
-            }
-        }) { (progress) in
-            DispatchQueue.main.async {
-                self.statusLabel.text = "\(progress)"
-                self.progressView.progress = Float(progress)
-            }
-        }
+//        AHNetworkProvider().send(MyTestService.s3, completion: { _ in
+//            DispatchQueue.main.async {
+//                self.statusLabel.text = "Done! 😊"
+//            }
+//        }) { (progress) in
+//            DispatchQueue.main.async {
+//                self.statusLabel.text = "\(progress)"
+//                self.progressView.progress = Float(progress)
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {

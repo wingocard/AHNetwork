@@ -18,6 +18,7 @@ protocol INetworkDownloadAdapter {
 }
 
 struct AHNetworkResponseAdapter: INetworkResponseAdapter, INetworkDownloadAdapter {
+    
     func response(from data: Data?, with response: URLResponse?, and error: Error?) -> ALEither<AHNetworkResponse, Error> {
             let resp = AHNetworkResponse.init(data: data, response: response)
             guard let result = ALEither(value: resp, error: error) else {
@@ -33,4 +34,5 @@ struct AHNetworkResponseAdapter: INetworkResponseAdapter, INetworkDownloadAdapte
         }
         return result
     }
+
 }
