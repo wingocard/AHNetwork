@@ -70,6 +70,7 @@ class ViewController: UIViewController {
         
         super.viewDidAppear(animated)
        let _ = AHNetworkProvider().send(MyTestService.google)
+        
                                      .map({ String.init(data: $0.data, encoding: .ascii) ?? "NOPE"})
                                      .receive(on: RunLoop.main)
                                      .sink(receiveCompletion: { (completion) in
