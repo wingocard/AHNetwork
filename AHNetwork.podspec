@@ -22,6 +22,7 @@ s.swift_version = '5.0'
 
 s.source_files = 'AHNetwork/Classes/**/*'
 
+s.dependency 'ALEither'
 s.dependency 'EitherResult'
 end
 

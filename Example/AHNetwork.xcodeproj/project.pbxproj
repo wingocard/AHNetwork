@@ -288,14 +288,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AHNetwork_Example/Pods-AHNetwork_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AHFuture/AHFuture.framework",
 				"${BUILT_PRODUCTS_DIR}/AHNetwork/AHNetwork.framework",
 				"${BUILT_PRODUCTS_DIR}/ALEither/ALEither.framework",
 				"${BUILT_PRODUCTS_DIR}/EitherResult/EitherResult.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AHFuture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AHNetwork.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALEither.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EitherResult.framework",
