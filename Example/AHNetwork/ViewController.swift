@@ -8,6 +8,7 @@
 
 import UIKit
 import AHNetwork
+
 import Combine
 
 enum MyTestService: IRequest {
@@ -62,6 +63,19 @@ enum TestError: Error {
     case notFound
 }
 
+enum RequestFactoryExampleType {
+    case sample
+}
+
+final class RequestFactoryExample: NetworkRequestFactory {
+    func getRequest(of type: RequestFactoryExampleType) -> IRequest {
+        // return IRequest
+        fatalError()
+    }
+    
+    
+}
+
 class ViewController: UIViewController {
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var statusLabel: UILabel!
@@ -69,16 +83,19 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-       let _ = AHNetworkProvider().send(MyTestService.google)
+        let layer = GenericNetworkLayerBuilder().getNetworkLayer(using: RequestFactoryExample())
         
-                                     .map({ String.init(data: $0.data, encoding: .ascii) ?? "NOPE"})
-                                     .receive(on: RunLoop.main)
-                                     .sink(receiveCompletion: { (completion) in
-                        
-                                            debugPrint(completion)
-                                        },
-                                          receiveValue: { [weak self] in self?.statusLabel.text = "Done! 😊 \($0)" })
-        
+//       let _ = AHNetworkProvider().send(MyTestService.google)
+//        
+//                                     .map({ String.init(data: $0.data, encoding: .ascii) ?? "NOPE"})
+//                                     .receive(on: RunLoop.main)
+//                                     .sink(receiveCompletion: { (completion) in
+//                                            
+//                                            debugPrint(completion)
+//
+//                                        },
+//                                          receiveValue: { [weak self] in self?.statusLabel.text = "Done! 😊 \($0)" })
+//        
 //
 //        AHNetworkProvider().requestFuture(for: MyTestService.google)
 //                                                 .filter(predicate: { (200..<300).contains($0.statusCode) }, error: TestError.notFound)

@@ -35,6 +35,6 @@ final class RequestTaskNode: BasicTaskNode {
         
         return session.dataTaskPublisher(for: request.urlRequest)
                       .map(AHNetworkResponse.init)
-                    .eraseToAnyPublisher()
+                      .eraseToAnyPublisher()
     }
 }

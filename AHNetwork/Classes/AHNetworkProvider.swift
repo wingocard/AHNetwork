@@ -17,7 +17,10 @@ enum NetworkProviderError: Error {
 public typealias progressTracker = (Double) -> Void
 public typealias completionHandler = (ALResult<AHNetworkResponse>) -> Void
 
+
+
 public protocol INetworkProvider {
+    
     @discardableResult
     func send(_ request: IRequest, completion: completionHandler?, progress: progressTracker?) -> ICancellable
     @available(iOS 13.0, *)
