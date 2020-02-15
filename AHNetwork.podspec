@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'AHNetwork'
-s.version          = '0.3.0'
+s.version          = '0.3.1'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.homepage         = 'https://github.com/AlexHmelevski/AHNetwork.git'
 s.author           = { 'AlexHmelevskiAG' => 'alex.hmelevski@gmail.com' }

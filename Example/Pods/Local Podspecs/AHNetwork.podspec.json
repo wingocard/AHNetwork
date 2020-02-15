@@ -21,10 +21,10 @@
   "swift_versions": "5.0",
   "source_files": "AHNetwork/Classes/**/*",
   "dependencies": {
-    "EitherResult": [
+    "ALEither": [
 
     ],
-    "ALEither": [
+    "EitherResult": [
 
     ]
   },
