@@ -24,6 +24,7 @@
 		7458066DCF580B511256A2D8DB68DC99 /* Pods-AHNetwork_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D8557FBEC23BDBF33BAF5DFA6011E8CA /* Pods-AHNetwork_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EEFBD22C5ECB1D2475A6AD519141128 /* IRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D33AEDA0703E64DDE5A367C9674295 /* IRequest.swift */; };
 		85BF7A75228EF084B7DC3614FB0BBCCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F92F3182E8FC8A5F9FF461FBFC62FC /* Foundation.framework */; };
+		89D331F923F87C61005C4BE8 /* GenericNetworkLayerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D331F823F87C61005C4BE8 /* GenericNetworkLayerBuilder.swift */; };
 		8FB3305B95D5E2581F5F28B54C4E14EF /* Pods-AHNetwork_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD8EF18BF8ECC43E52453CAA4FAD17D /* Pods-AHNetwork_Example-dummy.m */; };
 		9B941179ED32ABF74799DD2BEBB47B97 /* AHScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C48CFFE8F02D568A9547D037C1C1A /* AHScheme.swift */; };
 		A14FBCA52F4CDE11581B78492F2211C4 /* AHTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31382C62D6A787306F4780555761723E /* AHTaskType.swift */; };
@@ -94,9 +95,9 @@
 		03C14A420F8DA53E7569C22DDE28F443 /* AHNetwork.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AHNetwork.xcconfig; sourceTree = "<group>"; };
 		044A8B9F1CF0A69C8ADDC7C9005C28CB /* RequestTaskNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestTaskNode.swift; path = AHNetwork/Classes/RequestTaskNode.swift; sourceTree = "<group>"; };
 		069BD68C3181AC4410706D3DAA8E194D /* EitherResult.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EitherResult.xcconfig; sourceTree = "<group>"; };
-		0B34BB54E181BCE2A7C7DDAFCD5FB4E7 /* Pods_AHNetwork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AHNetwork_Example.framework; path = "Pods-AHNetwork_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B34BB54E181BCE2A7C7DDAFCD5FB4E7 /* Pods_AHNetwork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHNetwork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD8EF18BF8ECC43E52453CAA4FAD17D /* Pods-AHNetwork_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AHNetwork_Example-dummy.m"; sourceTree = "<group>"; };
-		0D00A8CBFDD1C0384C558697462E0EB1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		0D00A8CBFDD1C0384C558697462E0EB1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0E058FD57C15E6445956AB298835CBE5 /* EitherResult-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EitherResult-umbrella.h"; sourceTree = "<group>"; };
 		0F6B52251035B13919B6CBBBDB83AB6F /* ALEither.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALEither.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12DA771A291BF18369F207095FF8E35D /* Pods-AHNetwork_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AHNetwork_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,17 +122,18 @@
 		56D212A0C63E84D9F4B4C5E58BE1E0ED /* ALEither-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ALEither-dummy.m"; sourceTree = "<group>"; };
 		58A09285F1E1E11490250284C8D1847A /* Pods-AHNetwork_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AHNetwork_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		6013E6C1FB3E207A07FAE80E3F8BF908 /* ALEither-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALEither-prefix.pch"; sourceTree = "<group>"; };
-		6847148853C220BDDC1781C2EB6D921C /* Pods_AHNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AHNetwork_Tests.framework; path = "Pods-AHNetwork_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6847148853C220BDDC1781C2EB6D921C /* Pods_AHNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHNetwork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA2A99F40CCB6B241B3CA3D270F48DE /* EitherResult-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EitherResult-prefix.pch"; sourceTree = "<group>"; };
-		6CDC6D72070E21C5BE5E9FA0EE2170AC /* AHNetwork.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AHNetwork.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6CDC6D72070E21C5BE5E9FA0EE2170AC /* AHNetwork.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = AHNetwork.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6FAEE855E6503689D858F7C0B2EDB379 /* OptionalExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionalExtension.swift; path = ALResult/Classes/OptionalExtension.swift; sourceTree = "<group>"; };
 		7A315F6418353F51206B2EDAA0431595 /* AHNetwork-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AHNetwork-prefix.pch"; sourceTree = "<group>"; };
 		85A070DD86ED9BA8F17A67BE27E43E3C /* Pods-AHNetwork_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AHNetwork_Example-Info.plist"; sourceTree = "<group>"; };
 		870CE528FF569E7FEFECCEEE3F4358BA /* OptionalExt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionalExt.swift; path = ALEither/Classes/OptionalExt.swift; sourceTree = "<group>"; };
+		89D331F823F87C61005C4BE8 /* GenericNetworkLayerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericNetworkLayerBuilder.swift; path = AHNetwork/Classes/GenericNetworkLayerBuilder.swift; sourceTree = "<group>"; };
 		8EC7F148692C9462D9D478663250A03E /* Pods-AHNetwork_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AHNetwork_Example-frameworks.sh"; sourceTree = "<group>"; };
 		997B5CD55D752EF36706DB420AD4434E /* Pods-AHNetwork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AHNetwork_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		998F94EE1B8AB8D9D351C4DBA3A1E5C0 /* AHNetwork.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AHNetwork.modulemap; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F0333DC00BB69443D9A602749CF2672 /* DataDeSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataDeSerializer.swift; path = AHNetwork/Classes/DataDeSerializer.swift; sourceTree = "<group>"; };
 		A17EBE3D2BFB57724B5202DC2907EE01 /* EitherResult.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EitherResult.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AD6A9B3C6F90FC0D6FE3D9B1D4F085 /* AHNetwork-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AHNetwork-Info.plist"; sourceTree = "<group>"; };
@@ -140,10 +142,10 @@
 		AB7BE075861C9AB95D97DD03DB3767F8 /* AHNetworkResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHNetworkResponse.swift; path = AHNetwork/Classes/AHNetworkResponse.swift; sourceTree = "<group>"; };
 		B1F47E6825A6EC6ABB6913EDA9111997 /* ALEither-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALEither-umbrella.h"; sourceTree = "<group>"; };
 		B4D33AEDA0703E64DDE5A367C9674295 /* IRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IRequest.swift; path = AHNetwork/Classes/IRequest.swift; sourceTree = "<group>"; };
-		B78E4B786550A95571B0D50BBC21528F /* EitherResult.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EitherResult.framework; path = EitherResult.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B78E4B786550A95571B0D50BBC21528F /* EitherResult.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EitherResult.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD4215D6A3E7157096E2C35FB46C5B1 /* AHNetworkProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHNetworkProvider.swift; path = AHNetwork/Classes/AHNetworkProvider.swift; sourceTree = "<group>"; };
-		C19C1ECC3DB867CF338AA847C8EA0791 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		C22A00CA2632CF6D64EED554FBED3C8D /* ALEither.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ALEither.framework; path = ALEither.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C19C1ECC3DB867CF338AA847C8EA0791 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C22A00CA2632CF6D64EED554FBED3C8D /* ALEither.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALEither.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C24A57AD00C7DC560E344F7C2A993C5F /* AHNetwork-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AHNetwork-dummy.m"; sourceTree = "<group>"; };
 		C581277B2AE47C8BF248B9AB5D715C9F /* EitherResult-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EitherResult-dummy.m"; sourceTree = "<group>"; };
 		CBF1EE63C2D10264D595E64BA66DE55D /* ALEither.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ALEither.xcconfig; sourceTree = "<group>"; };
@@ -153,7 +155,7 @@
 		DD02A273F905A7C2A28D6810DF206410 /* Pods-AHNetwork_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AHNetwork_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E2F9636C0BF25CDBA8B970F2A4180835 /* Pods-AHNetwork_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AHNetwork_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E9917BC0EC06736F32E57C259DFC3C6E /* AHNetworkResponseAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHNetworkResponseAdapter.swift; path = AHNetwork/Classes/AHNetworkResponseAdapter.swift; sourceTree = "<group>"; };
-		ECBB7A74D5C081231815F74F23ED2998 /* AHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AHNetwork.framework; path = AHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBB7A74D5C081231815F74F23ED2998 /* AHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE9A4937418DEBBE1098F8E65B8D07FA /* ALEither-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ALEither-Info.plist"; sourceTree = "<group>"; };
 		F47168F3E2F75E30A2B83910C4143EFE /* ALEither.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ALEither.modulemap; sourceTree = "<group>"; };
 		FF676AB9EE713F51410105E11A444EED /* AHRequestAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AHRequestAdapter.swift; path = AHNetwork/Classes/AHRequestAdapter.swift; sourceTree = "<group>"; };
@@ -282,7 +284,6 @@
 				870CE528FF569E7FEFECCEEE3F4358BA /* OptionalExt.swift */,
 				C4E2E1B2A2442B9DFB4093187833410B /* Support Files */,
 			);
-			name = ALEither;
 			path = ALEither;
 			sourceTree = "<group>";
 		};
@@ -301,6 +302,7 @@
 		5F8684A981E5597F852C79DF91BC98B4 /* AHNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				89D331F823F87C61005C4BE8 /* GenericNetworkLayerBuilder.swift */,
 				33157BF49AED526B8C75208F7AA9AB6F /* AHCoreNetwork.swift */,
 				4FE5C0973824248F47EE39BCF4961668 /* AHGenericNetworkLayer.swift */,
 				42937C4C763919C773E8386D163262FC /* AHMethod.swift */,
@@ -361,7 +363,6 @@
 				6FAEE855E6503689D858F7C0B2EDB379 /* OptionalExtension.swift */,
 				012E64694512315491029B65AFE577D5 /* Support Files */,
 			);
-			name = EitherResult;
 			path = EitherResult;
 			sourceTree = "<group>";
 		};
@@ -670,6 +671,7 @@
 				A14FBCA52F4CDE11581B78492F2211C4 /* AHTaskType.swift in Sources */,
 				22698B1119A0099FEDF26D18AE9F4999 /* BasicTaskNode.swift in Sources */,
 				CD9E9B2E808D7EE9E15FA96E98A6226C /* DataDeSerializer.swift in Sources */,
+				89D331F923F87C61005C4BE8 /* GenericNetworkLayerBuilder.swift in Sources */,
 				EF1001F4E99C4FFC83314B7550AE0C7E /* DownloadTaskNode.swift in Sources */,
 				7EEFBD22C5ECB1D2475A6AD519141128 /* IRequest.swift in Sources */,
 				1490DC0B3D6F10843983C0342C1140F0 /* RequestTaskNode.swift in Sources */,
@@ -838,8 +840,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

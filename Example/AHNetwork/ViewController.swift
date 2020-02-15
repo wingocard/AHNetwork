@@ -84,7 +84,7 @@ class ViewController: UIViewController {
         
         super.viewDidAppear(animated)
         let layer = GenericNetworkLayerBuilder().getNetworkLayer(using: RequestFactoryExample())
-        
+
 //       let _ = AHNetworkProvider().send(MyTestService.google)
 //        
 //                                     .map({ String.init(data: $0.data, encoding: .ascii) ?? "NOPE"})
