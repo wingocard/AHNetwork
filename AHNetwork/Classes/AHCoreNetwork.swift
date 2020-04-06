@@ -66,11 +66,11 @@ final class AHCoreNetworkImp: AHCoreNetwork {
  
 }
 
-enum CoreNetworkError: LocalizedError {
+public enum CoreNetworkError: LocalizedError {
     case timeout
     case responseError(AHNetworkResponse)
 
-    var errorDescription: String? {
+    public var errorDescription: String? {
         var msg: String
 
         switch self {

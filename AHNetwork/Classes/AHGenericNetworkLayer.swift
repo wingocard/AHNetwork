@@ -14,7 +14,7 @@ public protocol NetworkRequestFactory {
     func getRequest(of type: RequestType) -> IRequest
 }
 
-public class GenericNetworkLayer<RequestFactory: NetworkRequestFactory> {
+open class GenericNetworkLayer<RequestFactory: NetworkRequestFactory> {
 
     private let coreNetwork: AHCoreNetwork
     private let requestFactory: RequestFactory
