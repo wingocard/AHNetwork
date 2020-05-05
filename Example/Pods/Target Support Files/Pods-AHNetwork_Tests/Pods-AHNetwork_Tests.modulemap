@@ -1,6 +1,0 @@
-framework module Pods_AHNetwork_Tests {
-  umbrella header "Pods-AHNetwork_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
