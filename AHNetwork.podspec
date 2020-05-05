@@ -20,7 +20,7 @@ s.module_name  = 'AHNetwork'
 s.ios.deployment_target = '11.0'
 s.swift_version = '5.0'
 
-s.source_files = 'AHNetwork/Classes/**/*'
+s.source_files = 'Sources/**/*'
 
 s.dependency 'ALEither'
 s.dependency 'EitherResult'
