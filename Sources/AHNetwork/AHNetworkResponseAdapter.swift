@@ -10,7 +10,9 @@ import Foundation
 import ALResult
 
 protocol INetworkResponseAdapter {
-    func response(from data: Data?, with response: URLResponse?, and error: Error?) -> ALResult<AHNetworkResponse>
+    
+    func response(from data: Data?, with response: URLResponse?, and error: Error?) ->
+        ALResult<AHNetworkResponse>
 }
 
 protocol INetworkDownloadAdapter {
