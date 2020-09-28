@@ -20,6 +20,8 @@ public final class JSONSerializer: DataSerializer, DataDeserializer {
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
+    public init() {}
+    
     public func convertToObject<T>(data: Data) throws -> T where T : Decodable {
         return try decoder.decode(T.self, from: data)
     }
