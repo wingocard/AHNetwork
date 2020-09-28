@@ -60,7 +60,7 @@ final class AHCoreNetworkImp: AHCoreNetwork {
     
 
     private func convertToError(networkResponse: AHNetworkResponse) -> CoreNetworkError? {
-        guard networkResponse.statusCode != 200  else { return nil }
+        guard networkResponse.statusCode >= 200 && networkResponse.statusCode < 300 else { return nil }
         return .responseError(networkResponse)
     }
  
